@@ -70,17 +70,15 @@
                             </Label.formattedText>
                         </Label>
                         <Label text="{{ description }}" textWrap="true"/>
-                        <Repeater items="{{ options }}" row="1" id="optionList" onswipe="handleSwipe">
+                        <Repeater items="{{ options }}" row="1">
                             <Repeater.itemTemplate>
                                 <GridLayout columns="auto,*" class="{{ (!selected && !correct)? 'not-selected': (skipped && correct)? 'skipped':(selected && !correct)?'incorrect': 'correct'}}">
                                     <Label col="0" text="{{ tag + '. ' }}"
                                            class="{{ (!selected && !correct)? 'not-selected': (skipped && correct)? 'skipped':(selected && !correct)?'incorrect': 'correct'}}"
-                                           textWrap="true" marginTop="10dpi" marginBottom="10dpi" tap="selectOption"
-                                           onswipe="handleSwipe"/>
+                                           textWrap="true" marginTop="10dpi" marginBottom="10dpi" />
                                     <Label col="1" text="{{ description }}"
                                            class="{{ (!selected && !correct)? 'not-selected': (skipped && correct)? 'skipped':(selected && !correct)?'incorrect': 'correct'}}"
-                                           textWrap="true" marginTop="10dpi" marginBottom="10dpi" tap="selectOption"
-                                           onswipe="handleSwipe"/>
+                                           textWrap="true" marginTop="10dpi" marginBottom="10dpi" />
                                 </GridLayout>
                             </Repeater.itemTemplate>
                         </Repeater>
