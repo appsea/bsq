@@ -153,7 +153,7 @@ export function quit(): void {
 export function showAnswer(): void {
     vm.showAnswer();
     optionList.refresh();
-    moveToLast();
+    // moveToLast();
 }
 
 export function selectOption(args): void {
