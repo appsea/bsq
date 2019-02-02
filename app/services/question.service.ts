@@ -108,6 +108,7 @@ export class QuestionService {
 
         return HttpService.getInstance().getQuestions<Array<IQuestion>>().then((questions: Array<IQuestion>) => {
             const oldQuestionSize: number = this.readQuestionSize();
+            console.log("oldQuestionSize:", oldQuestionSize);
             this.questions = questions;
             this.saveQuestions(questions);
             if (PersistenceService.getInstance().isPremium()) {
