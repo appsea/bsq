@@ -142,7 +142,8 @@ export class SummaryViewModel extends Observable {
                 keywords: ["games", "education"] // add keywords for ad targeting
             }, (reward) => {
                 QuestionService.getInstance().findPremiumRange((this._questionSize + 1),
-                    (this._questionSize + this._rewards)).then(this.load());
+                    (this._questionSize + this._rewards)).then(() => this.calculate(),
+                    (e) => console.log("Got error....", e));
             }, () => {
                 this.preloadVideoAd();
             }, () => {
