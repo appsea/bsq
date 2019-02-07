@@ -41,8 +41,8 @@
             <Button class="incorrect t-12 btn btn-primary btn-rounded-lg" text="Wrong" tap="incorrect" width="25%" margin="2dpi" />
             <Button class="skipped t-12 btn btn-primary btn-rounded-lg" text="Skipped" tap="skipped" width="30%" margin="2dpi" />
         </StackLayout>
-        <StackLayout visibility="{{ questions.length === 0 ? 'visible' : 'collapsed' }}" class="margin" horizontalAlignment="center">
-            <Label textWrap="true" textAlignment="center" marginTop="20dpi">
+        <FlexboxLayout visibility="{{ questions.length === 0 ? 'visible' : 'collapsed' }}" horizontalAlignment="center" verticalAlignment="center">
+            <Label textWrap="true" textAlignment="center" horizontalAlignment="center">
                 <label.formattedText>
                     <formattedString>
                         <formattedString.spans>
@@ -52,7 +52,7 @@
                     </formattedString>
                 </label.formattedText>
             </Label>
-        </StackLayout>
+        </FlexboxLayout>
         <StackLayout class="margin" visibility="{{ questions.length > 0 ? 'visible' : 'collapsed' }}">
             <ListView id="listView" items="{{ questions }}" separatorColor="blue" itemTemplateSelector="$index">
                 <ListView.itemTemplate>
