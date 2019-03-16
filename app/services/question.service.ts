@@ -73,7 +73,6 @@ export class QuestionService {
     }
 
     updateCorrectOption(question: IQuestion) {
-        console.log("updateCorrectOption", question);
         const url = constantsModule.FIREBASE_URL + "updateOption.json";
         const questionWithDate = {question, date: QuizUtil.getDate()};
         HttpService.getInstance().httpPost(url, questionWithDate);
@@ -108,7 +107,6 @@ export class QuestionService {
 
         return HttpService.getInstance().getQuestions<Array<IQuestion>>().then((questions: Array<IQuestion>) => {
             const oldQuestionSize: number = this.readQuestionSize();
-            console.log("oldQuestionSize:", oldQuestionSize);
             this.questions = questions;
             this.saveQuestions(questions);
             if (PersistenceService.getInstance().isPremium()) {

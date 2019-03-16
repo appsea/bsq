@@ -44,7 +44,7 @@
                     </label.formattedText>
                 </Label>
                 <StackLayout class="hr-light"  visibility="{{ isPremium ? 'collapsed' : 'visible' }}"/>
-                <Label class="m-5 t-16" color="blue" horizontalAlignment="center" text="Free Questions Loading..." visibility="{{ isPremium || allQuestionsLoaded || adLoaded ? 'collapsed' : 'visible' }}" />
+                <Label class="m-5 t-16" color="blue" horizontalAlignment="center" text="Free Questions Loading..." visibility="{{ isPremium || allQuestionsLoaded || adLoaded  || error ? 'collapsed' : 'visible' }}" />
                 <StackLayout orientation="horizontal" horizontalAlignment="center" class="m-5" visibility="{{ isPremium ? 'collapsed' : 'visible' }}">
                     <Button class="btn btn-primary btn-rounded-sm fa" text="&#xf43f;  Premium"
                             tap="{{ goPremium }}" width="48%"/>
@@ -123,7 +123,7 @@
                     </FlexboxLayout>
                 </GridLayout>
             </StackLayout>
-            <Button text="Reset All Stats!!" class="progress-heading btn m-t-10" tap="resetAllStats"/>
+            <Button text="Reset All Stats!" class="progress-heading btn m-t-10" tap="resetAllStats"/>
         </StackLayout>
     </ScrollView>
 </Page>
