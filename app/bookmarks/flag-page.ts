@@ -87,6 +87,8 @@ export function onDrawerButtonTap(args: EventData) {
 export function handleSwipe(args) {
     if (args.direction === SwipeDirection.left) {
         next();
+    } else if (args.direction === SwipeDirection.right) {
+        previous();
     }
 }
 

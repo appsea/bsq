@@ -17,6 +17,7 @@ import { ConnectionService } from "~/shared/connection.service";
 import { SelectedPageService } from "~/shared/selected-page-service";
 import * as constantsModule from "../shared/constants";
 import { QuestionViewModel } from "./question-view-model";
+import {PersistenceService} from "~/services/persistence.service";
 
 let vm: QuestionViewModel;
 let optionList: Repeater;
@@ -90,6 +91,8 @@ export function onDrawerButtonTap(args: EventData) {
 export function handleSwipe(args) {
     if (args.direction === SwipeDirection.left) {
         next();
+    } else if (args.direction === SwipeDirection.right) {
+        previous();
     }
 }
 
@@ -122,7 +125,7 @@ export function flag(): void {
 }
 
 function showBannerAd(): void {
-    if (!loaded) {
+    if (AdService.getInstance().showAd && (!loaded || (banner && banner.height === "auto"))) {
         AdService.getInstance().showSmartBanner().then(
             () => {
                 loaded = true;

@@ -73,6 +73,8 @@ export function onNavigatingTo(args: NavigatedData) {
 export function handleSwipe(args) {
     if (args.direction === SwipeDirection.left) {
         next();
+    } else if (args.direction === SwipeDirection.right) {
+        previous();
     }
 }
 
