@@ -5,22 +5,22 @@
 version: 2
 jobs:
   build:
+    context: Release
     docker:
-      # specify the version you desire here            
+      # specify the version you desire here
       #- image: circleci/openjdk:8u181-jdk-node-browsers
       - image: circleci/android:api-28-node8-alpha
-      
+
       #- image: circleci/android:api-25-alpha
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    environment:      
+    environment:
       JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
       #ANDROID_HOME: /usr/lib/google-cloud-sdk
       JVM_OPTS: -Xmx12800m
-      context: Release
 
     working_directory: ~/repo
 
