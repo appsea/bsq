@@ -15,6 +15,12 @@ import * as navigationModule from "../shared/navigation";
 
 export class SummaryViewModel extends Observable {
 
+    static getInstance(): SummaryViewModel {
+        return SummaryViewModel._instance;
+    }
+
+    private static _instance: SummaryViewModel = new SummaryViewModel();
+
     get overall() {
         const results: Array<IResult> = PersistenceService.getInstance().getResult();
         let correct: number = 0;
@@ -81,7 +87,7 @@ export class SummaryViewModel extends Observable {
     }
 
     get error() {
-        return this._error;
+        return !rewardModule.adLoaded();
     }
 
     private _checked: boolean = false;
@@ -99,7 +105,7 @@ export class SummaryViewModel extends Observable {
 
     private _allQuestionsLoaded: boolean = false;
 
-    constructor() {
+    private constructor() {
         super();
         this.load();
         this.preloadVideoAd();
@@ -128,7 +134,7 @@ export class SummaryViewModel extends Observable {
     }
 
     goPremium() {
-        navigationModule.toPage("premium/premium");
+        navigationModule.toPage("premium/premium-page");
     }
 
     preloadVideoAd() {

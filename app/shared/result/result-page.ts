@@ -20,7 +20,9 @@ export function onPageLoaded(args: EventData): void {
         return;
     }
     const pg = args.object;
-    pg.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    if (pg != null && !pg.hasListeners(AndroidApplication.activityBackPressedEvent)) {
+        pg.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    }
 }
 
 export function onActivityBackPressedEvent(args: AndroidActivityBackPressedEventData) {
