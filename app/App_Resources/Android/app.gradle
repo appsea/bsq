@@ -13,11 +13,11 @@ android {
     defaultConfig {
         generatedDensities = []
         multiDexEnabled = true
-        org.gradle.daemon=false
     }
     aaptOptions {
         additionalParameters "--no-version-vectors"
     }
+    org.gradle.daemon=false
 }
 
 def settingsGradlePath
