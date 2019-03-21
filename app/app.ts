@@ -4,10 +4,10 @@ You can use this file to perform app-level initialization, but the primary
 purpose of the file is to pass control to the app’s first module.
 */
 
-import * as app from "application";
 import * as purchase from "nativescript-purchase";
-import { isAndroid } from "platform";
-import { setTimeout } from "timer";
+import * as app from "tns-core-modules/application";
+import { isAndroid } from "tns-core-modules/platform";
+import { setTimeout } from "tns-core-modules/timer";
 import * as frame from "tns-core-modules/ui/frame";
 import { QuestionViewModel } from "~/question/question-view-model";
 import { AdService } from "~/services/ad.service";

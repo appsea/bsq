@@ -1,5 +1,5 @@
-import * as appSettings from "application-settings";
-import { IQuestion, ISetting, IState } from "~/shared/questions.model";
+import * as appSettings from "tns-core-modules/application-settings";
+import { ISetting, IState } from "~/shared/questions.model";
 import * as constantsModule from "../shared/constants";
 import * as navigationModule from "../shared/navigation";
 

@@ -1,4 +1,3 @@
-import * as appSettings from "application-settings";
 import {
     AD_SIZE,
     createBanner,
@@ -7,12 +6,11 @@ import {
     preloadInterstitial,
     showInterstitial
 } from "nativescript-admob";
-import { screen } from "platform";
 import { Observable } from "tns-core-modules/data/observable";
-import { isIOS } from "tns-core-modules/platform";
+import { isIOS, screen } from "tns-core-modules/platform";
+import { PersistenceService } from "~/services/persistence.service";
 import * as constantsModule from "../shared/constants";
 import { HttpService } from "./http.service";
-import {PersistenceService} from "~/services/persistence.service";
 
 export class AdService {
 
