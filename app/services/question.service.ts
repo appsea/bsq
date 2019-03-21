@@ -7,7 +7,7 @@ import * as appSettings from "tns-core-modules/application-settings";
 import { Observable } from "tns-core-modules/data/observable";
 import { isAndroid } from "tns-core-modules/platform";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import * as utils from "utils/utils";
+import * as utils from "tns-core-modules/utils/utils";
 import { ConnectionService } from "~/shared/connection.service";
 import { IQuestion } from "~/shared/questions.model";
 import { QuizUtil } from "~/shared/quiz.util";
