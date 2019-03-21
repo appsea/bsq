@@ -17,8 +17,9 @@ android {
     aaptOptions {
         additionalParameters "--no-version-vectors"
     }
-    org.gradle.daemon=false
 }
+
+org.gradle.daemon=false
 
 def settingsGradlePath
 
