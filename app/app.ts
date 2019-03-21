@@ -18,7 +18,7 @@ purchase.init([
 ]);
 
 if (isAndroid) {
-    application.android.on(application.AndroidApplication.activityBackPressedEvent, (args: app.AndroidActivityBackPressedEventData) => {
+    application.android.on(application.AndroidApplication.activityBackPressedEvent, (args: application.AndroidActivityBackPressedEventData) => {
         const page = frame.topmost().currentPage;
         if (page != null && page.hasListeners(application.AndroidApplication.activityBackPressedEvent)) {
             (<any>args).page = page;
