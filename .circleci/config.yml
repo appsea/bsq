@@ -19,7 +19,7 @@ jobs:
     environment:
       JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
       #ANDROID_HOME: /usr/lib/google-cloud-sdk
-      JVM_OPTS: -Xmx12800m
+      JVM_OPTS: -Xmx2048m
 
     working_directory: ~/repo
 
@@ -54,7 +54,7 @@ jobs:
       - run: mkdir $HOME/.gradle
       - run: cp app/App_Resources/Android/gradle.properties $HOME/.gradle/
       - run: cp app/App_Resources/Android/gradle.properties platforms/android/
-      - run: more platforms/android/gradle.properties
+      - run: more $HOME/.gradle/gradle.properties
       - run: echo -n $'\031' | tns build android --env.snapshot --env.uglify --release --key-store-path $KEYSTORE --key-store-password $KEYSTORE_PASSWORD --key-store-alias sasquiz --key-store-alias-password $KEYSTORE_PASSWORD --copy-to base.apk
       - run: ls -lrt base.apk
       - run: chmod +x PlayStoreUploader/bin/PlayStoreUploader

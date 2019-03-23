@@ -27,6 +27,7 @@ export class DetailedResultViewModel extends Observable {
     get questions() {
         return this._questions;
     }
+
     private _questions: Array<IQuestion> = [];
     private allQuestions: Array<IQuestion>;
     private _message: string;

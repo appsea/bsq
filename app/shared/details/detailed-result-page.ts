@@ -44,7 +44,6 @@ export function toggleSearch(args: EventData) {
 }
 
 export function clear() {
-
     vm.clear();
 }
 
