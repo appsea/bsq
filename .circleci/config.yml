@@ -51,6 +51,7 @@ jobs:
       - run: echo yes | tns doctor
       - run: tns platform add android
       - run: ls -lrt $HOME
+      - run: mkdir .gradle
       - run: cp app/App_Resources/Android/gradle.properties $HOME/.gradle/
       - run: cp app/App_Resources/Android/gradle.properties platforms/android/
       - run: more platforms/android/gradle.properties
