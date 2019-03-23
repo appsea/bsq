@@ -1,5 +1,7 @@
 import groovy.json.JsonSlurper
 
+org.gradle.daemon=false
+
 task replaceSettings {
     description "Replaces configuration settings."
     def jsonSlurper = new JsonSlurper()

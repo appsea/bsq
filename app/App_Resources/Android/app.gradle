@@ -19,8 +19,6 @@ android {
     }
 }
 
-org.gradle.daemon=false
-
 def settingsGradlePath
 
 if (project.hasProperty("appResourcesPath")) {
