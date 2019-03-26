@@ -79,7 +79,6 @@ export class QuestionViewModel extends Observable {
         this._state = this._settingsService.readCache(mode);
         this._mode = mode;
         this.count = this._state.questionNumber;
-        console.log("Count set in constructor", this.count);
         this.showFromState();
     }
 
