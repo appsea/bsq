@@ -31,7 +31,7 @@ export class BookmarkQuestionModel extends Observable {
         return this._question.flagged;
     }
 
-    get length() {
+    get length(): number {
         return this._questions.length;
     }
 
