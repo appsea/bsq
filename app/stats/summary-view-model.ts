@@ -2,7 +2,7 @@ import * as Toast from "nativescript-toast";
 import { EventData, Observable } from "tns-core-modules/data/observable";
 import { setTimeout } from "tns-core-modules/timer";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import { AdService } from "~/services/ad.service";
+import { AdService } from "~/admob/ad.service";
 import { HttpService } from "~/services/http.service";
 import { PersistenceService } from "~/services/persistence.service";
 import { QuestionService } from "~/services/question.service";
