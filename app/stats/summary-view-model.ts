@@ -10,7 +10,7 @@ import { QuestionUtil } from "~/services/question.util";
 import { ConnectionService } from "~/shared/connection.service";
 import { IPracticeStats, IResult } from "~/shared/questions.model";
 import { QuizUtil } from "~/shared/quiz.util";
-import * as rewardModule from "../services/ads.js";
+import * as rewardModule from "../admob/ads.js";
 import * as constantsModule from "../shared/constants";
 import * as navigationModule from "../shared/navigation";
 
