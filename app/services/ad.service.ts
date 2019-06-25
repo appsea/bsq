@@ -1,3 +1,5 @@
+import { isIOS, screen } from "tns-core-modules/platform";
+import { PersistenceService } from "~/services/persistence.service";
 import {
     AD_SIZE,
     createBanner,
@@ -5,12 +7,9 @@ import {
     hideBanner,
     preloadInterstitial,
     showInterstitial
-} from "nativescript-admob";
-import { Observable } from "tns-core-modules/data/observable";
-import { isIOS, screen } from "tns-core-modules/platform";
-import { PersistenceService } from "~/services/persistence.service";
+} from "../admob/ads.js";
+import { HttpService } from "../services/http.service";
 import * as constantsModule from "../shared/constants";
-import { HttpService } from "./http.service";
 
 export class AdService {
 
@@ -22,7 +21,7 @@ export class AdService {
         this._showAd = showAd;
     }
 
-    static _testing = false;
+    static _testing = true;
 
     static getInstance(): AdService {
         return AdService._instance;
@@ -64,12 +63,14 @@ export class AdService {
     }
 
     getAdHeight(): number {
-        let height = 32;
-        const screenHeight: number = screen.mainScreen.heightDIPs;
-        if (screenHeight > 400 && screenHeight < 721) {
-            height = 50;
-        } else if (screenHeight > 720) {
-            height = 90;
+        let height = 0;
+        if (this._showAd) {
+            const screenHeight: number = screen.mainScreen.heightDIPs;
+            if (screenHeight > 400 && screenHeight < 721) {
+                height = 50;
+            } else if (screenHeight > 720) {
+                height = 90;
+            }
         }
 
         return height;
@@ -100,45 +101,51 @@ export class AdService {
     }*/
 
     doShowInterstitial(): void {
-        showInterstitial().then(
-            () => console.log("Shown Interstitial..."),
-            (error) => console.log("Error showing interstitial", error)
-        );
+        if (this._showAd) {
+            showInterstitial().then(
+                () => console.log("Shown interstetial..."),
+                (error) => console.log("Error showing interstitial", error)
+            );
+        }
     }
 
     doPreloadInterstitial(resolve, reject): void {
-        preloadInterstitial({
-            testing: AdService._testing,
-            iosInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
-            androidInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
-            onAdClosed: () => {
-                this.doPreloadInterstitial(resolve, reject);
-            }
-        }).then(
-            () => {
-                console.log("Interstitial preloaded");
-                resolve();
-            },
-            (error) => {
-                console.log("Error preloading interstitial: " + error);
-                reject(error);
-            }
-        );
+        if (this._showAd) {
+            preloadInterstitial({
+                testing: AdService._testing,
+                iosInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
+                androidInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
+                onAdClosed: () => {
+                    this.doPreloadInterstitial(resolve, reject);
+                }
+            }).then(
+                () => {
+                    console.log("Interstitial preloaded");
+                    resolve();
+                },
+                (error) => {
+                    console.log("Error preloading interstitial: " + error);
+                    reject(error);
+                }
+            );
+        }
 
     }
 
     doCreateInterstitial(): void {
-        createInterstitial({
-            testing: AdService._testing,
-            iosInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
-            androidInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
-            onAdClosed: () => {
-                console.log("doCreate Closed...");
-            }
-        }).then(
-            () => console.log("Interstitial created"),
-            (error) => console.error("Error creating interstitial: " + error)
-        );
+        if (this._showAd) {
+            createInterstitial({
+                testing: AdService._testing,
+                iosInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
+                androidInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
+                onAdClosed: () => {
+                    console.log("doCreate Closed...");
+                }
+            }).then(
+                () => console.log("Interstitial created"),
+                (error) => console.error("Error creating interstitial: " + error)
+            );
+        }
     }
 
     private createBanner(size: AD_SIZE): Promise<void> {

@@ -30,11 +30,11 @@
     "nativescript-ui-chart": "^4.0.2",
     "nativescript-ui-sidedrawer": "~6.0.0",
     "rxjs": "~6.5.0",
-    "tns-core-modules": "^5.4.1"
+    "tns-core-modules": "^5.4.2"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
-    "ajv": "^6.5.5",
+    "ajv": "^6.10.5",
     "chai": "4.2.0",
     "concurrently": "^4.1.0",
     "karma": "4.1.0",
