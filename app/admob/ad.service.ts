@@ -1,4 +1,6 @@
 import { isIOS, screen } from "tns-core-modules/platform";
+import { QuestionViewModel } from "~/question/question-view-model";
+import { HttpService } from "~/services/http.service";
 import { PersistenceService } from "~/services/persistence.service";
 import {
     AD_SIZE,
@@ -8,7 +10,6 @@ import {
     preloadInterstitial,
     showInterstitial
 } from "../admob/ads.js";
-import { HttpService } from "../services/http.service";
 import * as constantsModule from "../shared/constants";
 
 export class AdService {
@@ -146,6 +147,19 @@ export class AdService {
                 (error) => console.error("Error creating interstitial: " + error)
             );
         }
+    }
+
+    delayedPreloadInterstitial(): void {
+        setTimeout(() => {
+            if (!PersistenceService.getInstance().isPremium()) {
+                AdService.getInstance().doPreloadInterstitial(() => {
+                        QuestionViewModel._errorLoading = false;
+                    },
+                    () => {
+                        QuestionViewModel._errorLoading = true;
+                    });
+            }
+        }, 2000);
     }
 
     private createBanner(size: AD_SIZE): Promise<void> {
