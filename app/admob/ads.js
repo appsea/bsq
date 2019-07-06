@@ -165,7 +165,7 @@ admob.showVideoAd = function () {
 
 admob.adLoaded = function() {
     return !!admob.videoView;
-}
+};
 
 admob.createBanner = function (arg) {
     return new Promise(function (resolve, reject) {
@@ -234,6 +234,7 @@ admob.createBanner = function (arg) {
         resolve();
       } catch (ex) {
         console.log("Error in admob.createBanner: ", ex);
+        console.error(ex.stack);
         reject(ex);
       }
     });
