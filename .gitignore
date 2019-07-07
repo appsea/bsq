@@ -4,6 +4,7 @@ node_modules/
 platforms/
 *.apk
 *.aab
+.tmp_backup
 
 # NativeScript Template
 *.js.map
