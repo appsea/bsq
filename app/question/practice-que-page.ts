@@ -2,6 +2,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { AndroidActivityBackPressedEventData, AndroidApplication } from "tns-core-modules/application";
 import { EventData, Observable } from "tns-core-modules/data/observable";
 import { isAndroid, screen } from "tns-core-modules/platform";
+import { isAndroid, isIOS } from "tns-core-modules/platform";
 import * as ButtonModule from "tns-core-modules/ui/button";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { topmost } from "tns-core-modules/ui/frame";
@@ -57,7 +58,9 @@ export function onNavigatingTo(args) {
         return;
     }
     const page = <Page>args.object;
-    page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    if (isAndroid) {
+        page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    }
     banner = page.getViewById("banner");
     suggestionButton = page.getViewById("suggestionButton");
     _page = page;

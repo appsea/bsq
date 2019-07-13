@@ -46,6 +46,7 @@ export function onNavigatedFrom(args: NavigatedData) {
     vm.stopTimer();
 }
 
+import { isAndroid, screen } from "tns-core-modules/platform";
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
 *************************************************************/
@@ -61,7 +62,9 @@ export function onNavigatingTo(args: NavigatedData) {
         return;
     }
     const page = <Page>args.object;
-    page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    if (isAndroid) {
+        page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    }
     optionList = page.getViewById("optionList");
     scrollView = page.getViewById("scrollView");
     banner = page.getViewById("banner");

@@ -63,7 +63,9 @@ export function onNavigatingTo(args: NavigatedData) {
     }
     SelectedPageService.getInstance().updateSelectedPage("quick");
     const page = <Page>args.object;
-    page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    if (isAndroid) {
+        page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    }
     optionList = page.getViewById("optionList");
     scrollView = page.getViewById("scrollView");
     banner = page.getViewById("banner");

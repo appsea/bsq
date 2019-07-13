@@ -2,6 +2,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { AndroidActivityBackPressedEventData, AndroidApplication } from "tns-core-modules/application";
 import { EventData, Observable } from "tns-core-modules/data/observable";
 import { isAndroid, screen } from "tns-core-modules/platform";
+import { isAndroid, screen } from "tns-core-modules/platform";
 import * as ButtonModule from "tns-core-modules/ui/button";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { topmost } from "tns-core-modules/ui/frame";
@@ -17,7 +18,6 @@ import { QuestionViewModel } from "~/question/question-view-model";
 import { ConnectionService } from "~/shared/connection.service";
 import { SelectedPageService } from "~/shared/selected-page-service";
 import { FlagQuestionModel } from "./flag-question-model";
-
 let vm: FlagQuestionModel;
 let optionList: Repeater;
 let suggestionButton: ButtonModule.Button;
@@ -60,7 +60,9 @@ export function onNavigatingTo(args: NavigatedData) {
     _page = <Page>args.object;
     vm = new FlagQuestionModel();
     _page.bindingContext = vm;
-    _page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    if (isAndroid) {
+        _page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    }
     banner = _page.getViewById("banner");
     optionList = _page.getViewById("optionList");
     suggestionButton = _page.getViewById("suggestionButton");

@@ -46,6 +46,8 @@ export function resetBanner() {
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
 *************************************************************/
+import { isAndroid, screen } from "tns-core-modules/platform";
+
 export function onNavigatingTo(args: NavigatedData) {
     /* ***********************************************************
     * The "onNavigatingTo" event handler lets you detect if the user navigated with a back button.
@@ -59,7 +61,9 @@ export function onNavigatingTo(args: NavigatedData) {
     _page = <Page>args.object;
     vm = new WrongQuestionModel();
     _page.bindingContext = vm;
-    _page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    if (isAndroid) {
+        _page.on(AndroidApplication.activityBackPressedEvent, onActivityBackPressedEvent, this);
+    }
     banner = _page.getViewById("banner");
     optionList = _page.getViewById("optionList");
     suggestionButton = _page.getViewById("suggestionButton");

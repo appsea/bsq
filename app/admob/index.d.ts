@@ -38,8 +38,6 @@ declare module "nativescript-admob" {
     /**
      */
 
-
-
     /**
      * To show a reward video add you can use this function to preload the ad.
      */
