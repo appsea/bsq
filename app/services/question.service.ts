@@ -246,11 +246,12 @@ export class QuestionService {
     private checkForApplicationUpdate() {
         if (!this._checked) {
             HttpService.getInstance().checkPlayStoreVersion().then((playStoreVersion: string) => {
+                this._checked = true;
                 appVersion.getVersionCode().then((versionCode: string) => {
                     if (Number(playStoreVersion) > Number(versionCode)) {
                         dialogs.confirm({
                             title: "Notification",
-                            message: "A latest version of Base Sas is now available on play store.",
+                            message: "Better version of Base Sas is now available on play store.",
                             okButtonText: "Update",
                             cancelButtonText: "Remind me Later"
                         }).then((proceed) => {
