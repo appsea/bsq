@@ -1,5 +1,3 @@
-/// <reference path="admob-common.d.ts"/>
-
 declare module "nativescript-admob" {
 
     export function createBanner(arg): Promise<any>;

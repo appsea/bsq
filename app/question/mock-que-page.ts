@@ -46,7 +46,6 @@ export function onNavigatedFrom(args: NavigatedData) {
     vm.stopTimer();
 }
 
-import { isAndroid, screen } from "tns-core-modules/platform";
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
 *************************************************************/

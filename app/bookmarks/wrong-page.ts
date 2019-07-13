@@ -46,7 +46,6 @@ export function resetBanner() {
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
 *************************************************************/
-import { isAndroid, screen } from "tns-core-modules/platform";
 
 export function onNavigatingTo(args: NavigatedData) {
     /* ***********************************************************
