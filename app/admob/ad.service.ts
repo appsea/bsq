@@ -2,14 +2,15 @@ import { isIOS, screen } from "tns-core-modules/platform";
 import { QuestionViewModel } from "~/question/question-view-model";
 import { HttpService } from "~/services/http.service";
 import { PersistenceService } from "~/services/persistence.service";
-import {
+import { QuizUtil } from "~/shared/quiz.util";
+/*import {
     AD_SIZE,
     createBanner,
     createInterstitial,
     hideBanner,
     preloadInterstitial,
     showInterstitial
-} from "../admob/ads.js";
+} from "../admob/ads";*/
 import * as constantsModule from "../shared/constants";
 
 export class AdService {
@@ -22,7 +23,7 @@ export class AdService {
         this._showAd = showAd;
     }
 
-    static _testing = false;
+    static _testing = true;
 
     static getInstance(): AdService {
         return AdService._instance;
@@ -55,16 +56,16 @@ export class AdService {
     }
 
     hideAd() {
-        if (this._showAd) {
+        /*if (this._showAd) {
             hideBanner().then(
                 () => console.log("Banner hidden"),
                 (error) => console.error("Error hiding banner: " + error)
             );
-        }
+        }*/
     }
 
     getAdHeight(): number {
-        let height = 0;
+        /*let height = 32;
         if (this._showAd) {
             const screenHeight: number = screen.mainScreen.heightDIPs;
             if (screenHeight > 400 && screenHeight < 721) {
@@ -72,13 +73,15 @@ export class AdService {
             } else if (screenHeight > 720) {
                 height = 90;
             }
-        }
+        }*/
 
-        return height;
+        return 0;
     }
 
     doCreateSmartBanner(): Promise<void> {
-        return this.createBanner(AD_SIZE.SMART_BANNER);
+        // return this.createBanner(AD_SIZE.SMART_BANNER);
+
+        return QuizUtil.emptyPromise();
     }
 
     /*doCreateSkyscraperBanner(): void {
@@ -103,15 +106,15 @@ export class AdService {
 
     doShowInterstitial(): void {
         if (this._showAd) {
-            showInterstitial().then(
+            /*showInterstitial().then(
                 () => console.log("Shown interstetial..."),
                 (error) => console.log("Error showing interstitial", error)
-            );
+            );*/
         }
     }
 
     doPreloadInterstitial(resolve, reject): void {
-        if (this._showAd) {
+        /*if (this._showAd) {
             preloadInterstitial({
                 testing: AdService._testing,
                 iosInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
@@ -129,12 +132,12 @@ export class AdService {
                     reject(error);
                 }
             );
-        }
+        }*/
 
     }
 
     doCreateInterstitial(): void {
-        if (this._showAd) {
+        /*if (this._showAd) {
             createInterstitial({
                 testing: AdService._testing,
                 iosInterstitialId: constantsModule.INTERSTITIAL_AD_ID,
@@ -146,7 +149,7 @@ export class AdService {
                 () => console.log("Interstitial created"),
                 (error) => console.error("Error creating interstitial: " + error)
             );
-        }
+        }*/
     }
 
     delayedPreloadInterstitial(): void {
@@ -162,8 +165,11 @@ export class AdService {
         }, 2000);
     }
 
-    private createBanner(size: AD_SIZE): Promise<void> {
-        return createBanner({
+    private createBanner(size): Promise<void> {
+
+        return QuizUtil.emptyPromise();
+
+        /*return createBanner({
             testing: AdService._testing,
             // if this 'view' property is not set, the banner is overlayed on the current top most view
             // view: ..,
@@ -178,6 +184,6 @@ export class AdService {
                 bottom: isIOS ? 50 : 0
             },
             keywords: ["games", "education"]
-        });
+        });*/
     }
 }

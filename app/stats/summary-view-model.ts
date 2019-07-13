@@ -10,7 +10,7 @@ import { QuestionUtil } from "~/services/question.util";
 import { ConnectionService } from "~/shared/connection.service";
 import { IPracticeStats, IResult } from "~/shared/questions.model";
 import { QuizUtil } from "~/shared/quiz.util";
-import * as rewardModule from "../admob/ads.js";
+// import * as rewardModule from "../admob/ads.js";
 import * as constantsModule from "../shared/constants";
 import * as navigationModule from "../shared/navigation";
 
@@ -85,11 +85,15 @@ export class SummaryViewModel extends Observable {
     }
 
     get adLoaded() {
-        return rewardModule.adLoaded();
+        // return rewardModule.adLoaded();
+
+        return true;
     }
 
     get error() {
-        return !rewardModule.adLoaded();
+        // return !rewardModule.adLoaded();
+
+        return false;
     }
 
     private _checked: boolean = false;
@@ -140,7 +144,7 @@ export class SummaryViewModel extends Observable {
     }
 
     preloadVideoAd() {
-        if (!PersistenceService.getInstance().isPremium() && !rewardModule.adLoaded()) {
+        /*if (!PersistenceService.getInstance().isPremium() && !rewardModule.adLoaded()) {
             rewardModule.preloadVideoAd({
                 testing: AdService._testing,
                 iosInterstitialId: constantsModule.REWARD_AD_ID, // add your own
@@ -167,7 +171,7 @@ export class SummaryViewModel extends Observable {
                     this.calculate();
                 }
             );
-        }
+        }*/
     }
 
     calculate() {
@@ -232,13 +236,13 @@ export class SummaryViewModel extends Observable {
     }
 
     private showVideoAd() {
-        rewardModule.showVideoAd().then(
+        /*rewardModule.showVideoAd().then(
             () => {
                 console.log("interstitial showing");
             },
             (error) => {
                 console.log("admob showInterstitial error: " + error);
             }
-        );
+        );*/
     }
 }

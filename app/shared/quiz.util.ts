@@ -14,6 +14,10 @@ export class QuizUtil {
         return d.toISOString();
     }
 
+    static emptyPromise() {
+        return Promise.resolve(undefined);
+    }
+
     static getDateString(date: Date): string {
         let dateString: string = "";
         dateString += QuizUtil.days[date.getDay()];
