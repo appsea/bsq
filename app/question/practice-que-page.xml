@@ -17,10 +17,13 @@
         -->
         <ActionItem tap="onDrawerButtonTap">
             <ActionItem.actionView>
-                <StackLayout orientation="horizontal">
-                    <Label class="action-bar-title fa" text="&#xf044;" tap="goToEditPage"></Label>
-                    <Label class="{{ (question.flagged)? 'action-bar-title fa flagged': 'action-bar-title fa' }}" text="&#xf024;" tap="flag"></Label>
-                </StackLayout>
+                <GridLayout cols="*, auto">
+                    <Label text="&#xf039" col="0" class="fa t-14"></Label>
+                    <StackLayout col="1" orientation="horizontal">
+                        <Label class="action-bar-title fa" text="&#xf044;" tap="goToEditPage"></Label>
+                        <Label class="{{ (question.flagged)? 'action-bar-title fa flagged': 'action-bar-title fa' }}" text="&#xf024;" tap="flag"></Label>
+                    </StackLayout>
+                </GridLayout>
             </ActionItem.actionView>
         </ActionItem>
 
