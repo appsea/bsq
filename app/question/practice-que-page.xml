@@ -9,25 +9,17 @@
         Use the NavigationButton as a side-drawer button in Android
         because ActionItems are shown on the right side of the ActionBar
         -->
-        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        
         <!--
         Use the ActionItem for IOS with position set to left. Using the
         NavigationButton as a side-drawer button in iOS is not possible,
         because its function is to always navigate back in the application.
         -->
-        <ActionItem tap="onDrawerButtonTap">
-            <ActionItem.actionView>
-                <GridLayout cols="*, auto">
-                    <Label text="&#xf039" col="0" class="fa t-14"></Label>
-                    <StackLayout col="1" orientation="horizontal">
-                        <Label class="action-bar-title fa" text="&#xf044;" tap="goToEditPage"></Label>
-                        <Label class="{{ (question.flagged)? 'action-bar-title fa flagged': 'action-bar-title fa' }}" text="&#xf024;" tap="flag"></Label>
-                    </StackLayout>
-                </GridLayout>
-            </ActionItem.actionView>
-        </ActionItem>
-
-        <Label class="action-bar-title">
+        <ActionItem>
+            <ActionItem.actionView>ƒ
+                <GridLayout cols="*, auto,  auto" width="100%">
+                    <Label text="&#xf0c9;" col="0" class="fa t-14 c-white" tap="onDrawerButtonTap"></Label>
+                    <Label class="action-bar-title" col="1">
             <label.formattedText>
                 <formattedString>
                     <formattedString.spans>
@@ -37,6 +29,15 @@
                 </formattedString>
             </label.formattedText>
         </Label>
+                    <StackLayout col="2" orientation="horizontal" class="action-bar-icons">
+                        <Label class="action-bar-title fa" text="&#xf044;" tap="goToEditPage"></Label>
+                        <Label class="{{ (question.flagged)? 'action-bar-title fa flagged': 'action-bar-title fa' }}" text="&#xf024;" tap="flag"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </ActionItem.actionView>
+        </ActionItem>
+
+        
     </ActionBar>
 
     <DockLayout stretchLastChild="true">

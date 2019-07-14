@@ -61,6 +61,13 @@ ActionBar .action-bar-title {
     color: white;
 }
 
+
+ActionBar .action-bar-icons {
+    horizontal-align: right;
+    color: white;
+    margin-right: 10;
+}
+
 ActionBar .flagged {
   color: $flag-color;
 }
