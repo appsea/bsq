@@ -3,14 +3,14 @@ import { QuestionViewModel } from "~/question/question-view-model";
 import { HttpService } from "~/services/http.service";
 import { PersistenceService } from "~/services/persistence.service";
 import { QuizUtil } from "~/shared/quiz.util";
-/*import {
+import {
     AD_SIZE,
     createBanner,
     createInterstitial,
     hideBanner,
     preloadInterstitial,
     showInterstitial
-} from "../admob/ads";*/
+} from "../admob/ads";
 import * as constantsModule from "../shared/constants";
 
 export class AdService {

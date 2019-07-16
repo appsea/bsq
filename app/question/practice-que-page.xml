@@ -18,7 +18,7 @@
         <ActionItem>
             <ActionItem.actionView>ƒ
                 <GridLayout cols="*, auto,  auto" width="100%">
-                    <Label text="&#xf0c9;" col="0" class="fa t-14 c-white" tap="onDrawerButtonTap"></Label>
+                    <Label text="&#xf0c9;" col="0" class="fa t-14 c-white" verticalAlignment="center" tap="onDrawerButtonTap"></Label>
                     <Label class="action-bar-title" col="1">
             <label.formattedText>
                 <formattedString>
