@@ -1,5 +1,3 @@
-export const MONICA = "U2FsdGVkX19TO7etbwGKrPNOHGcW7w626g0jbSAmQYZsnfdd/8TO4b6D+wDJgoRZkIWElFPlTumMsX05U6vZnA==";
-export const GUPIT = "basesas";
 export const INTERSTITIAL_AD_ID = "ca-app-pub-9082814869788754/5195869671";
 export const BANNER_AD_ID = "ca-app-pub-9082814869788754/7345143371";
 export const REWARD_AD_ID = "ca-app-pub-9082814869788754/8730675606";
