@@ -58,7 +58,7 @@ export function navigate(args: EventData): void {
 }
 
 export function share(args: EventData): void {
-    SocialShare.shareText("http://bit.ly/basesas\n" +
+    SocialShare.shareText("https://play.google.com/store/apps/details?id=com.exuberant.quiz.sas\n" +
         "Hi there, Take a look at the Base Sas Quiz which I am using for preparing For Base SAS Certification!!!");
 }
 
