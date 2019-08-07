@@ -258,8 +258,11 @@ export class QuestionService {
                         }).then((proceed) => {
                             if (proceed) {
                                 if (isAndroid) {
-                                    utils.openUrl("https://play.google.com/store/apps/details?" +
-                                        "id=com.exuberant.quiz.sas");
+                                    if (isAndroid) {
+                                        utils.openUrl("https://play.google.com/store/apps/details?id=com.exuberant.quiz.sas");
+                                    } else {
+                                        utils.openUrl("https://apps.apple.com/app/dvsa-lgv/id310633997");
+                                    }
                                 }
                             }
                         });
